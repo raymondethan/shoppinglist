@@ -16,9 +16,9 @@ def index(request):
 def newitem(request):
     file = open("request.txt", "w")
     file.write("hello")
-    file.write(request.raw_post_data)
+    file.write(request.body)
     if request.method == 'POST':
-        json_data = request.body()
+        json_data = request.body
         #json_data = json.decode(request.GET())
         file.write("post")
     else:

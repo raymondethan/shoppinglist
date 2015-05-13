@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 import json
 
 from .models import ShoppingItem
@@ -11,6 +12,7 @@ def index(request):
     times = int(os.environ.get('TIMES',3))
     return HttpResponse('Hello! ' * times)
 
+@csrf_exempt
 def newitem(request):
     if request.method == 'POST':
         json_data = request.GET()

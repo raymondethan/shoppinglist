@@ -10,4 +10,6 @@ urlpatterns = [
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', shoppinglistdata.views.index, name='index'),
+    url(r'^newitem/', shoppinglistdata.views.newitem, name='newitem')
 ]
+#(?P<shoppingitem_id>[0-9]+)/

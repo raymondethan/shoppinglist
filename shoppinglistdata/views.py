@@ -14,6 +14,8 @@ def index(request):
 
 @csrf_exempt
 def newitem(request):
+    file = open("request.txt", "w")
+    file.write(str(request.method) + "\n" + str(request.Get()))
     if request.method == 'POST':
         json_data = request.GET()
         #json_data = json.decode(request.GET())

@@ -22,7 +22,7 @@ def newitem(request):
         #json_data = json.decode(request.GET())
         file.write("post")
     else:
-        file.write("not a post")
+        file.write(request.method)
     file.close()
     return HttpResponse("Got it")
 

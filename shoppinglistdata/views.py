@@ -19,7 +19,7 @@ def newitem(request):
     if request.method == 'POST':
         json_data = request.body()
         #json_data = json.decode(request.GET())
-        file.write("post"))
+        file.write("post")
     else:
         file.write("not a post")
     file.close()

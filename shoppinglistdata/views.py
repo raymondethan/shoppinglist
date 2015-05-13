@@ -24,7 +24,7 @@ def newitem(request):
     else:
         file.write(request.method)
     file.close()
-    return HttpResponse("Got it")
+    return HttpResponse("yo")
 
 
 #def db(request):

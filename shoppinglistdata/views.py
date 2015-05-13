@@ -16,13 +16,13 @@ def index(request):
 def newitem(request):
     file = open("request.txt", "w")
     file.write(request.read())
-    file.close()
     if request.method == 'POST':
         json_data = request.body()
         #json_data = json.decode(request.GET())
-        print(json_data)
+        file.write("post"))
     else:
-        print("not a post")
+        file.write("not a post")
+    file.close()
     return HttpResponse("Got it")
 
 

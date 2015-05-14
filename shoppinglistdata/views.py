@@ -15,7 +15,7 @@ def index(request):
 @csrf_exempt
 def newitem(request):
     if request.method == 'POST':
-        item = ShoppingItem(request.body)
+        item = ShoppingItem(request.read())
         item.save()
         return render(request, 'newitem.html', {'post': item})
     return HttpResponse('yo')

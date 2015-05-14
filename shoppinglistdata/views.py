@@ -21,11 +21,8 @@ def newitem(request):
         json_data = json.loads(request.body)['item']
         print(json_data)
         sys.stdout.flush()
-        item = ShoppingItem(json_data)
-        item.save()
-        #item = ShoppingItem(request.POST[0])
+        #item = ShoppingItem(json_data)
         #item.save()
-        #return render(request, 'newitem.html', {'post': item})
     sys.stdout.flush()
     return HttpResponse(output)
 

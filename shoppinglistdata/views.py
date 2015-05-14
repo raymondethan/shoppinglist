@@ -14,16 +14,9 @@ def index(request):
 
 @csrf_exempt
 def newitem(request):
-    file = open("request.txt", "w")
-    file.write(request.method)
-    file.write(request.body)
     if request.method == 'POST':
-        json_data = request.body
-        #json_data = json.decode(request.GET())
-        file.write("post")
-    else:
-        file.write(request.body)
-    file.close()
+        item = ShoppingItem(request.body)
+        item.save()
     return HttpResponse("hello")
 
 

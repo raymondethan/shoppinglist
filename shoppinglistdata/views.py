@@ -17,7 +17,8 @@ def newitem(request):
     if request.method == 'POST':
         item = ShoppingItem(request.body)
         item.save()
-    return HttpResponse("hello")
+        return render(request, 'newitem.html', {'post': item})
+    return HttpResponse('yo')
 
 
 #def db(request):

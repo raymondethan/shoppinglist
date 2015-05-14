@@ -18,21 +18,7 @@ def newitem(request):
     output = 'sup'
     print("received")
     if request.method == 'POST':
-        try:
-            output = str(request.POST[0])
-            output += " post"
-        except:
-            output = "sup"
-        try:
-            output = str(request.read())
-            output += " read"
-        except:
-            output = "sub"
-        try:
-            output = str(request.body)
-            output += " body"
-        except:
-            output = "sup"
+        output = request.POST.data
         print(output)
         sys.stdout.flush()
         #item = ShoppingItem(request.POST[0])

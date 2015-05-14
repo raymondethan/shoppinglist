@@ -18,7 +18,7 @@ def newitem(request):
     output = 'sup'
     print("received")
     if request.method == 'POST':
-        json_data = json.loads(request.body)
+        json_data = request.body
         print(json_data)
         sys.stdout.flush()
         #item = ShoppingItem(request.POST[0])

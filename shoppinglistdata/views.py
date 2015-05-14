@@ -6,6 +6,7 @@ import json
 from .models import ShoppingItem
 import requests
 import os
+import sys
 
 # Create your views here.
 def index(request):
@@ -31,7 +32,8 @@ def newitem(request):
             output += " body"
         except:
             output = "sup"
-        os.system("echo output")
+        print(output)
+        sys.stdout.flush()
         #item = ShoppingItem(request.POST[0])
         #item.save()
         #return render(request, 'newitem.html', {'post': item})

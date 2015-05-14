@@ -14,11 +14,27 @@ def index(request):
 
 @csrf_exempt
 def newitem(request):
+    output = 'sup'
     if request.method == 'POST':
-        item = ShoppingItem(request.POST[0])
-        item.save()
-        return render(request, 'newitem.html', {'post': item})
-    return HttpResponse('yo')
+        try:
+            output = str(request.POST[0])
+            output += " post"
+        except:
+            output = "sup"
+        try:
+            output = str(request.read())
+            output += " read"
+        except:
+            output = "sub"
+        try:
+            output = str(request.body)
+            output += " body"
+        except:
+            output = "sup"
+        #item = ShoppingItem(request.POST[0])
+        #item.save()
+        #return render(request, 'newitem.html', {'post': item})
+    return HttpResponse(output)
 
 
 #def db(request):

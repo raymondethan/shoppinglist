@@ -16,7 +16,6 @@ def index(request):
 @csrf_exempt
 def newitem(request):
     output = 'sup'
-    print("received")
     if request.method == 'POST':
         json_data = json.loads(request.body)['item']
         print("data: " + str(json_data))
@@ -24,8 +23,7 @@ def newitem(request):
         item = ShoppingItem(json_data)
         print(item)
         sys.stdout.flush()
-        #item.save()
-    sys.stdout.flush()
+        item.save()
     return HttpResponse(output)
 
 # logging helper

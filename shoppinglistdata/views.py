@@ -16,6 +16,7 @@ def index(request):
 @csrf_exempt
 def newitem(request):
     output = 'sup'
+    print("received")
     if request.method == 'POST':
         try:
             output = str(request.POST[0])

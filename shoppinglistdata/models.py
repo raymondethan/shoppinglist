@@ -4,6 +4,9 @@ from django.db import models
 
 class ShoppingItem(models.Model):
     item_name = models.CharField(max_length=200)
+    
+    def __init__(self, name):
+        item_name = name
 
     def __str__(self):
         return self.item_name

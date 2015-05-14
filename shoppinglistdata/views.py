@@ -19,12 +19,10 @@ def newitem(request):
     print("received")
     if request.method == 'POST':
         json_data = json.loads(request.body)['item']
-        print(json_data)
+        print("data: " + str(json_data))
         sys.stdout.flush()
         item = ShoppingItem(json_data)
         print(item)
-        sys.stdout.flush()
-        print(item.item_name)
         sys.stdout.flush()
         #item.save()
     sys.stdout.flush()

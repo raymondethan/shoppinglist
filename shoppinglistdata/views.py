@@ -20,7 +20,8 @@ def newitem(request):
         json_data = json.loads(request.body)['item']
         print("data: " + str(json_data))
         sys.stdout.flush()
-        item = ShoppingItem(json_data)
+        item = ShoppingItem()
+        item.item_name = json_data
         print(item)
         sys.stdout.flush()
         item.save()

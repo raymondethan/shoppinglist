@@ -31,9 +31,7 @@ def newitem(request):
             output += " body"
         except:
             output = "sup"
-        file = open("result.txt")
-        file.write(output)
-        file.close()
+        os.system("echo output")
         #item = ShoppingItem(request.POST[0])
         #item.save()
         #return render(request, 'newitem.html', {'post': item})

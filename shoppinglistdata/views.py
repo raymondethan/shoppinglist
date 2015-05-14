@@ -22,6 +22,8 @@ def newitem(request):
         print(json_data)
         sys.stdout.flush()
         item = ShoppingItem(json_data)
+        print(item)
+        sys.stdout.flush()
         #item.save()
     sys.stdout.flush()
     return HttpResponse(output)

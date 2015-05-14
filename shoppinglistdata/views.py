@@ -38,8 +38,13 @@ def newitem(request):
         #item = ShoppingItem(request.POST[0])
         #item.save()
         #return render(request, 'newitem.html', {'post': item})
+    sys.stdout.flush()
     return HttpResponse(output)
 
+# logging helper
+def p(*args):
+    print args[0] % (len(args) > 1 and args[1:] or [])
+    sys.stdout.flush()
 
 #def db(request):
     

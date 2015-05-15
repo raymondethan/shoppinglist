@@ -15,7 +15,7 @@ def index(request):
 
 @csrf_exempt
 def newitem(request):
-    response = {"success": True}
+    response = {"success": 1}
     if request.method == 'POST':
         json_data = json.loads(request.body)['item']
         item = ShoppingItem()

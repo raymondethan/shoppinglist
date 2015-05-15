@@ -15,13 +15,15 @@ def index(request):
 
 @csrf_exempt
 def newitem(request):
-    response = {"success": 1}
+    output = {"success": 1}
+    response = HttpResponse()
+    response['Age'] = 120
     if request.method == 'POST':
         json_data = json.loads(request.body)['item']
         item = ShoppingItem()
         item.item_name = json_data
         item.save()
-    return HttpResponse(json.dumps(response), content_type = "application/json"))
+    return response
 
 # logging helper
 def p(*args):

@@ -21,7 +21,7 @@ def newitem(request):
         item = ShoppingItem()
         item.item_name = json_data
         item.save()
-    return HttpResponse(response)
+    return HttpResponse(json.dumps(response), content_type = "application/json"))
 
 # logging helper
 def p(*args):

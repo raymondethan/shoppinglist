@@ -15,14 +15,23 @@ def index(request):
 
 @csrf_exempt
 def newitem(request):
-    output = {"success": 1}
     response = HttpResponse()
-    response['Age'] = 120
     if request.method == 'POST':
         json_data = json.loads(request.body)['item']
         item = ShoppingItem()
         item.item_name = json_data
         item.save()
+    return response
+
+@csrf_exempt
+def newuser(request):
+    response = HttpResponse()
+    if request.method == 'POST':
+        data = json.loads(request.body)['register']
+        if data == 'yes':
+            response['success'] = 'true'
+        else:
+            response['success'] = 'false'
     return response
 
 # logging helper

@@ -5,6 +5,7 @@ import json
 
 from .models import ShoppingItem
 from .models import User
+from .models import ShoppingList
 import requests
 import os
 import sys
@@ -37,6 +38,9 @@ def newuser(request):
             user.username = data["username"]
             user.password = data["password"]
             user.save()
+            list = ShoppingList()
+            list.list_name = data["username"] + "'s list"
+            list.save()
             response["success"] = "true"
             response["error"] = "None"
     return response

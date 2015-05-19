@@ -19,6 +19,9 @@ class User(models.Model):
     username = models.CharField(max_length=200)
     password = models.CharField(max_length=100)
 
+    def __str__(self):
+        return str(username)
+
 class ItemList(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     item_key = models.ForeignKey(ShoppingItem)

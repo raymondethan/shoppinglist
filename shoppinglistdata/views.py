@@ -4,6 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 
 from .models import ShoppingItem
+from .models import User
 import requests
 import os
 import sys
@@ -27,11 +28,16 @@ def newitem(request):
 def newuser(request):
     response = HttpResponse()
     if request.method == 'POST':
-        data = json.loads(request.body)['register']
-        if data == 'yes':
-            response['success'] = 'true'
+        data = json.loads(request.body)
+        if User.objects.filter(username = data["username"]).count() > 0:
+            response["success"] = "false"
+            response["error"] = "Username already exists"
         else:
-            response['success'] = 'false'
+            user = User()
+            user.username = data["username"]
+            user.password = data["password"]
+            response["success"] = "true"
+            response["error"] = "None"
     return response
 
 # logging helper

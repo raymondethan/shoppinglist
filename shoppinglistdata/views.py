@@ -45,6 +45,13 @@ def newuser(request):
             response["error"] = "None"
     return response
 
+@csrf_exempt
+def getlist:
+    response = HttpResponse()
+    if request.method == "GET":
+        response["success"] = "true"
+    return response
+
 # logging helper
 def p(*args):
     print args[0] % (len(args) > 1 and args[1:] or [])

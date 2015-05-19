@@ -36,6 +36,7 @@ def newuser(request):
             user = User()
             user.username = data["username"]
             user.password = data["password"]
+            user.save()
             response["success"] = "true"
             response["error"] = "None"
     return response

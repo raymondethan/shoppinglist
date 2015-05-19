@@ -6,6 +6,7 @@ import json
 from .models import ShoppingItem
 from .models import User
 from .models import ShoppingList
+from .models import ItemList
 import requests
 import os
 import sys
@@ -39,7 +40,7 @@ def newuser(request):
             user.password = data["password"]
             user.save()
             list = ShoppingList()
-            list.list_name = data["username"] + "'s list"
+            list.list_name = data["username"] + "'s_list"
             list.save()
             response["success"] = "true"
             response["error"] = "None"
@@ -49,6 +50,8 @@ def newuser(request):
 def getlist(request):
     response = HttpResponse()
     if request.method == "GET":
+        items = ItemList.objects.filter(list_key__list_name=request.GET.get('username') + "'s_list")
+        print(items)
         response["success"] = "true"
         print(request.GET.get('username'))
     #print(username)

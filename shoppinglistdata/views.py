@@ -50,7 +50,7 @@ def newuser(request):
 def getlist(request):
     response = HttpResponse()
     if request.method == "GET":
-        items = ItemList.objects.filter(list_key__list_name=request.GET.get('username') + "'s_list")
+        items = ItemList.objects.filter(str(list_key__list_name=request.GET.get('username')) + "'s_list")
         print(items)
         response["success"] = "true"
         print(request.GET.get('username'))

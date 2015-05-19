@@ -24,6 +24,8 @@ def newitem(request):
         item = ShoppingItem()
         item.item_name = json_data
         item.save()
+        print item.id
+        ItemList.objects.create(item_key__id = item.id)
     return response
 
 @csrf_exempt

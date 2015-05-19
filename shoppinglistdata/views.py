@@ -46,7 +46,7 @@ def newuser(request):
     return response
 
 @csrf_exempt
-def getlist(request. username=None):
+def getlist(request, username=None):
     response = HttpResponse()
     if request.method == "GET":
         response["success"] = "true"

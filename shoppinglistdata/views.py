@@ -20,13 +20,15 @@ def index(request):
 def newitem(request):
     response = HttpResponse()
     if request.method == 'POST':
-        json_data = json.loads(request.body)['item']
+        json_data = json.loads(request.body)
         item = ShoppingItem()
-        item.item_name = json_data
+        item.item_name = json_data['item']
         item.save()
         print item.id
         itemlist = ItemList()
         itemlist.item_key = item
+        itemlist.user_key = User.objects.filter(username=json_data['username'])[0]
+        itemlist.save()
     return response
 
 @csrf_exempt

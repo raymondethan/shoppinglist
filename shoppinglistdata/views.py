@@ -25,7 +25,8 @@ def newitem(request):
         item.item_name = json_data
         item.save()
         print item.id
-        ItemList.objects.create(item_key__id=item.id)
+        itemlist = ItemList()
+        itemlist.item_key = item
     return response
 
 @csrf_exempt

@@ -27,6 +27,7 @@ def newitem(request):
         print item.id
         itemlist = ItemList()
         itemlist.item_key = item
+        print(User.objects.filter(username=json_data['username'])[0])
         itemlist.user_key = User.objects.filter(username=json_data['username'])[0]
         itemlist.save()
     return response

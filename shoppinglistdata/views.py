@@ -30,7 +30,7 @@ def newitem(request):
         print(User.objects.filter(username=json_data['username'])[0])
         itemlist.user_key = User.objects.filter(username=json_data['username'])[0]
         itemlist.list_key = ShoppingList.objects.filter(list_name=json_data['listname'])[0]
-    #itemlist.save()
+        itemlist.save()
     return response
 
 @csrf_exempt

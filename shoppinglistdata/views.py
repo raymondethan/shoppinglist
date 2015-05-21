@@ -24,10 +24,8 @@ def newitem(request):
         item = ShoppingItem()
         item.item_name = json_data['item']
         item.save()
-        print item.id
         itemlist = ItemList()
         itemlist.item_key = item
-        print(User.objects.filter(username=json_data['username'])[0])
         itemlist.user_key = User.objects.filter(username=json_data['username'])[0]
         itemlist.list_key = ShoppingList.objects.filter(list_name=json_data['listname'])[0]
         itemlist.save()
@@ -58,10 +56,8 @@ def getlist(request):
     response = HttpResponse()
     if request.method == "GET":
         items = ItemList.objects.filter(user_key__username=request.GET.get('username'))
-        print(items)
+        print(len(items))
         response["success"] = "true"
-        print(request.GET.get('username'))
-    #print(username)
     return response
 
 # logging helper

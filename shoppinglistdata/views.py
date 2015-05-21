@@ -56,8 +56,13 @@ def getlist(request):
     response = HttpResponse()
     if request.method == "GET":
         items = ItemList.objects.filter(user_key__username=request.GET.get('username'))
+        list_items = []
+        for item in items:
+            list_items.append(item.item_key.item_name)
+        json = {"items": list_items}
         print(len(items))
         response["success"] = "true"
+        response["items"] = json.dumps(json)
     return response
 
 # logging helper

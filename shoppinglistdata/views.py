@@ -59,13 +59,13 @@ def getlist(request):
         list_items = []
         for item in items:
             list_items.append(item.item_key.item_name)
-        json = {"items": list_items}
+        data = {"items": list_items}
         print("length of items: " + str(len(items)))
         print("length of itemlist: " + str(len(list_items)))
         response["success"] = "true"
-        print(json)
-        print(json.dumps(json))
-        response["items"] = json.dumps(json)
+        print(data)
+        print(json.dumps(data))
+        response["items"] = json.dumps(data)
     return response
 
 # logging helper

@@ -62,6 +62,7 @@ def getlist(request):
         json = {"items": list_items}
         print(len(items))
         response["success"] = "true"
+        print(json.dumps(json))
         response["items"] = json.dumps(json)
     return response
 

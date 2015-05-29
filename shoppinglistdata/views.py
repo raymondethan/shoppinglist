@@ -61,7 +61,7 @@ def getlist(request):
             list_items.append(item.item_key.item_name)
         data = {"items": list_items}
         response["success"] = "true"
-        response["items"] = data
+        response["items"] = json.dumps(data)
     return response
 
 # logging helper

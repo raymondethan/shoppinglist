@@ -28,6 +28,9 @@ def newitem(request):
         itemlist.item_key = item
         itemlist.user_key = User.objects.filter(username=json_data['username'])[0]
         itemlist.list_key = ShoppingList.objects.filter(list_name=json_data['listname'])[0]
+        print(itemlist.item_key)
+        print(itemlist.user_key)
+        print(itemlist.list_key)
         itemlist.save()
     return response
 

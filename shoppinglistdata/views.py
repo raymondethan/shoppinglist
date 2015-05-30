@@ -69,7 +69,7 @@ def login(request):
     response = HttpResponse()
     if request.method == "GET":
         if User.objects.filter(username = request.GET.get("username")).count() > 0:
-            # and User.objects.filter(username = request.GET.get("username")).password == request.GET.get("password")
+            and User.objects.filter(username = request.GET.get("username"))[0].password == request.GET.get("password")
             response["valid"] = "true"
             items = ItemList.objects.filter(user_key__username=request.GET.get('username'))
             list_items = []

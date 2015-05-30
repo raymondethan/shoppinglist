@@ -71,6 +71,13 @@ def login(request):
         if User.objects.filter(username = request.GET.get("username")).count() > 0:
             # and User.objects.filter(username = request.GET.get("username")).password == request.GET.get("password")
             response["valid"] = "true"
+            items = ItemList.objects.filter(user_key__username=request.GET.get('username'))
+            list_items = []
+            for item in items:
+                list_items.append(item.item_key.item_name)
+            data = {"items": list_items}
+            response["success"] = "true"
+            response["items"] = json.dumps(data)
         else:
             response["valid"] = "false"
             print("false")

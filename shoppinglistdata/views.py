@@ -72,6 +72,9 @@ def login(request):
             response["valid"] = "true"
         else:
             response["valid"] = "false"
+            println("false")
+        println(requset.GET.get("username"))
+        println(request.GET.get("password"))
     return response
 
 

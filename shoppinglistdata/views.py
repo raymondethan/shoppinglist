@@ -77,7 +77,7 @@ def login(request):
             response["valid"] = "false"
             print("false")
             sys.stdout.flush()
-        print(requset.GET.get("username"))
+        print(request.GET.get("username"))
         sys.stdout.flush()
         print(request.GET.get("password"))
         sys.stdout.flush()

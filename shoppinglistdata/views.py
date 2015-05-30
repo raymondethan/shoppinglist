@@ -64,6 +64,17 @@ def getlist(request):
         response["items"] = json.dumps(data)
     return response
 
+@csrf_exempt
+def login(request):
+    response = HttpResponse()
+    if request.method == "GET":
+        if User.objects.filter(username = request.GET.get("username")).count() > 0 and User.objects.filter(username = request.GET.get("username")).password = request.GET.get("password"):
+            response["valid"] = "true"
+        else:
+            response["valid"] = "false"
+    return response
+
+
 # logging helper
 def p(*args):
     print args[0] % (len(args) > 1 and args[1:] or [])

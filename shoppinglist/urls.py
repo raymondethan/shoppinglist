@@ -13,6 +13,6 @@ urlpatterns = [
     url(r'^newitem/', shoppinglistdata.views.newitem, name='newitem'),
     url(r'^newuser/', shoppinglistdata.views.newuser, name='newuser'),
     url(r'^getlist/', shoppinglistdata.views.getlist, name='getlist'),
-    url(r'^login/', shoppinglistdata.views.getlist, name='login')
+    url(r'^login/', shoppinglistdata.views.getname, name='login')
 ]
 #(?P<shoppingitem_id>[0-9]+)/

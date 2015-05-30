@@ -68,8 +68,8 @@ def getlist(request):
 def login(request):
     response = HttpResponse()
     if request.method == "GET":
-        println(request.GET.get("username"))
-        println(request.GET.get("password"))
+        print(request.GET.get("username"))
+        print(request.GET.get("password"))
         if User.objects.filter(username = request.GET.get("username")).count() > 0:
             # and User.objects.filter(username = request.GET.get("username")).password == request.GET.get("password")
             response["valid"] = "true"

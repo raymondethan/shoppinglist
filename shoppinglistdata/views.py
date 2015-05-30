@@ -78,6 +78,7 @@ def login(request):
         sys.stdout.flush()
         println(request.GET.get("password"))
         sys.stdout.flush()
+    print(request.method)
     return response
 
 

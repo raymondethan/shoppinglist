@@ -68,9 +68,7 @@ def getlist(request):
 def login(request):
     response = HttpResponse()
     if request.method == "GET":
-        print(User.objects.filter(username = request.GET.get("username"))[0].password)
-        print(request.GET.get("password"))
-        if User.objects.filter(username = request.GET.get("username")).count() > 0 and User.objects.filter(username = request.GET.get("username"))[0].password == request.GET.get("password")
+        if User.objects.filter(username = request.GET.get("username")).count() > 0 and User.objects.filter(username = request.GET.get("username"))[0].password == request.GET.get("password"):
             response["valid"] = "true"
             items = ItemList.objects.filter(user_key__username=request.GET.get('username'))
             list_items = []

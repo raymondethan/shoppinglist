@@ -14,6 +14,6 @@ urlpatterns = [
     url(r'^newuser/', shoppinglistdata.views.newuser, name='newuser'),
     url(r'^getlist/', shoppinglistdata.views.getlist, name='getlist'),
     url(r'^login/', shoppinglistdata.views.login, name='login'),
-    url(r'^login/', shoppinglistdata.views.updatecompleted, name='updatecompleted')
+    url(r'^updatecompleted/', shoppinglistdata.views.updatecompleted, name='updatecompleted')
 ]
 #(?P<shoppingitem_id>[0-9]+)/

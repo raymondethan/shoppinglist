@@ -83,6 +83,17 @@ def login(request):
             sys.stdout.flush()
     return response
 
+@csrf_exempt
+def updatecompleted(request):
+    response = HttpResponse()
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        user = User.objects.filter(username = data["username"])[0]
+        for item in data["items"]:
+            i = ItemList.objects.filter(item_key__item_name=item, list_key__list_name=user.username+"'_list", user_key=user)[0]
+            i.completed = True
+            i.save()
+    return response
 
 # logging helper
 def p(*args):

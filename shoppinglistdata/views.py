@@ -70,10 +70,10 @@ def login(request):
     if request.method == "GET":
         if User.objects.filter(username = request.GET.get("username")).count() > 0 and User.objects.filter(username = request.GET.get("username"))[0].password == request.GET.get("password"):
             response["valid"] = "true"
-            items = ItemList.objects.filter(user_key__username=request.GET.get('username'))
+            items = ItemList.objects.filter(user_key__username=request.GET.get('username'), list_key__list_name=request.GET.get('username') + "'s_list")
             list_items = []
             for item in items:
-                list_items.append(item.item_key.item_name)
+                list_items.append((item.item_key.item_name, item.completed))
             data = {"items": list_items}
             response["success"] = "true"
             response["items"] = json.dumps(data)

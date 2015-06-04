@@ -90,7 +90,7 @@ def updatecompleted(request):
         for item in data["items"]:
             print(item)
             try:
-                i = ItemList.objects.filter(item_key__item_name=items, list_key__list_name=user.username+"'_list
+                i = ItemList.objects.filter(item_key__item_name=items, list_key__list_name=user.username+"'_list"
                 )[0]#, user_key=user)[0]
             except:
                 print("failed")

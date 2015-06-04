@@ -89,6 +89,7 @@ def updatecompleted(request):
         user = User.objects.filter(username = data["username"])[0]
         for item in data["items"]:
             print(item)
+            print(user.username + "'_list")
             try:
                 i = ItemList.objects.filter(item_key__item_name=item, user_key=user)#, list_key__list_name=user.username+"'_list"
             except:

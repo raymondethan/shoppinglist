@@ -93,7 +93,7 @@ def updatecompleted(request):
             except:
                 print("failed")
             if len(i) == 1:
-                i[0].completed = !(i[0].completed)
+                i[0].completed = not i[0].completed
                 i[0].save()
     return response
 

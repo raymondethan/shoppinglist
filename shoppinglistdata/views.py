@@ -21,9 +21,13 @@ def newitem(request):
     response = HttpResponse()
     if request.method == 'POST':
         json_data = json.loads(request.body)
-        item = ShoppingItem()
-        item.item_name = json_data['item']
-        item.save()
+        item = ShoppingItem.objects.filter(item_name=json_data['item'])
+        if len(item) == 0:
+            item = ShoppingItem()
+            item.item_name = json_data['item']
+            item.save()
+        else:
+            item = item[0]
         itemlist = ItemList()
         itemlist.item_key = item
         itemlist.user_key = User.objects.filter(username=json_data['username'])[0]

@@ -28,11 +28,13 @@ def newitem(request):
             item.save()
         else:
             item = item[0]
-        itemlist = ItemList()
-        itemlist.item_key = item
-        itemlist.user_key = User.objects.filter(username=json_data['username'])[0]
-        itemlist.list_key = ShoppingList.objects.filter(list_name=json_data['listname'])[0]
-        itemlist.save()
+        itemlist = ItemList.objects.filter(item_key=item, user_key__username=json_data['username'], list_key__list_name=json_data['listname'])
+        if len(itemlist) == 0:
+            itemlist = ItemList()
+            itemlist.item_key = item
+            itemlist.user_key = User.objects.filter(username=json_data['username'])[0]
+            itemlist.list_key = ShoppingList.objects.filter(list_name=json_data['listname'])[0]
+            itemlist.save()
     return response
 
 @csrf_exempt
